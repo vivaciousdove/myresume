@@ -1,0 +1,12 @@
+Hi Sonja,
+
+I wanted to share a quick update and thank you again for the guidance you gave me earlier — it’s paid off in a very concrete way.
+
+Over the past few weeks, I’ve rebuilt my resume as a live, versioned web project using HTML, CSS, and JavaScript, hosted on GitHub Pages. I treated it like a real deliverable: source-controlled, testable, and continuously deployed, with Playwright tests and CI validating the page and guarding against regressions.
+
+This work sits alongside a larger end-to-end QA automation project (UI + API + DB + CI), but the resume repo itself reflects your advice directly — clarity, proof, and recruiter-friendly storytelling, backed by real artifacts rather than claims.
+
+If you’re open to it, I’d welcome any feedback after a quick glance. Either way, I wanted to close the loop and let you know how influential your input has been.
+
+Best regards,
+Todd
