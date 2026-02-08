@@ -58,7 +58,7 @@ test.describe('Resume site - smoke + quality gate', () => {
 
     // PDF reachability check (request-level = stable + fast)
     // Update this if your PDF filename changes.
-    const pdfHref = 'Todd_Conner_resume.pdf';
+    const pdfHref = 'Todd-Conner-Senior-Quality-Engineer-Automation-Cloud.pdf';
 
     const pdfResponse = await page.request.get(`http://127.0.0.1:5173/${pdfHref}`);
     expect(pdfResponse.ok(), `PDF request failed for /${pdfHref}`).toBeTruthy();

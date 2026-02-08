@@ -4,7 +4,7 @@
 - main [ref=e2]:
   - generic [ref=e4]:
     - heading "Todd Conner" [level=1] [ref=e5]
-    - paragraph [ref=e6]: QA Engineer | Software Developer In Test | Open To Relocation
+    - paragraph [ref=e6]: DevOps | QA Engineering | Software Developer In Test | RF Engineering | Open To Relocation Package
     - generic [ref=e7]:
       - generic [ref=e8]: Midlothian, VA
       - generic [ref=e9]: •
@@ -141,10 +141,10 @@
         - strong [ref=e139]: Master of Business Administration
         - text: — Western Governors University • Richmond, VA
       - listitem [ref=e140]:
-        - strong [ref=e141]: Bachelor of Arts in Communications
+        - strong [ref=e141]: Bachelor of Communications
         - text: — Baylor University • Waco, TX
   - generic [ref=e142]:
-    - heading "Certification" [level=2] [ref=e143]
+    - heading "Certifications" [level=2] [ref=e143]
     - list [ref=e144]:
       - listitem [ref=e145]:
         - strong [ref=e146]: "Programming Foundations: Software Testing/QA"
@@ -162,20 +162,18 @@
           - /url: https://mycourse.app/TNwfRQirQHMg73MpH
     - list [ref=e156]:
       - listitem [ref=e157]:
-        - strong [ref=e158]: University of Phoenix (credential 24NL-43YW-AGRH)
+        - strong [ref=e158]: University of Phoenix Cloud Computing (credential 24NL-43YW-AGRH)
         - link "Click Here for evidence" [ref=e159] [cursor=pointer]:
           - /url: https://www.phoenix.edu/cecredential-validation.html
     - list [ref=e160]:
       - listitem [ref=e161]:
         - strong [ref=e162]: AWS Certified Cloud Practitioner (credential 26b31aa435714ef4b30411f9966d8b10)
         - link "Click Here for evidence" [ref=e163] [cursor=pointer]:
-          - /url: https://www.linkedin.com/learning/certificates/915af98ef5987a8c1e737d36d6578905a9ab333229ea7f5ee0b4e155a628eec2
+          - /url: https://cp.certmetrics.com/amazon/en/public/verify/credential
     - list [ref=e164]:
       - listitem [ref=e165]:
         - strong [ref=e166]: Project Management Professional (credential 1440075)
         - link "Click Here for Link to Credential" [ref=e167] [cursor=pointer]:
           - /url: https://www.pmi.org/certifications/certification-resources/registry
-  - generic [ref=e169]:
-    - text: "Last updated:"
-    - text: "• Views: 1"
+  - generic [ref=e169]: "Last updated: 2/7/2026 • Views: 1"
 ```
