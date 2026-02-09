@@ -1,5 +1,3 @@
----
-
 ## 🌐 Live Site
 👉 https://vivaciousdove.github.io/myresume/
 
