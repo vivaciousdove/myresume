@@ -152,6 +152,23 @@ li { margin: 0 0 6px; }
   max-width: 75ch; /* improves readability */
 }
 
+/* ---------- Company description typography (NEW) ----------
+   Add class="company-description" to BOTH company description paragraphs in HTML.
+   This forces identical typography across roles even if containers differ.
+----------------------------------------------------------- */
+.company-description {
+  margin: 8px 0 10px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 85ch;
+  letter-spacing: 0.1px;
+}
+
+/* Optional: keep bullets visually tight under the description */
+.role ul { margin-top: 6px; }
+
 /* Projects */
 section ul li strong { color: var(--text); }
 section ul li { line-height: 1.4; }
@@ -209,5 +226,10 @@ section ul li { line-height: 1.4; }
   h2 {
     border-top: 1px solid #000;
     padding-top: 10px;
+  }
+
+  /* Ensure company description prints consistently */
+  .company-description {
+    color: #000;
   }
 }
