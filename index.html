@@ -6,25 +6,28 @@
   <title>Todd Conner — Resume</title>
   <meta name="description" content="Todd Conner — Senior Quality Engineer focused on automation, cloud, CI/CD, and API/UI testing." />
 
-  <!-- ✅ GitHub Pages-safe pathing (works at /myresume/) -->
+  <!-- GitHub Pages-safe pathing -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <main class="container">
+
+    <!-- ===========================
+         HEADER
+    ============================ -->
     <header class="header">
       <div class="header-left">
         <h1 class="name">Todd Conner</h1>
 
-        <!-- ✅ Readable headline (single-line on desktop, wraps cleanly on mobile) -->
         <p class="headline">
           Senior Quality Engineer | Automation &amp; Cloud | CI/CD | Playwright | Web &amp; API Testing | SQL | JSON | AI-Powered SaaS Builder | PMP | Remote Preferred | Open to Hybrid
         </p>
 
-        <!-- Contact row with icons -->
-        <div class="meta-row">
-          <span>Midlothian, VA</span>
+        <nav class="meta-row">
+          <span aria-label="Location">Midlothian, VA</span>
           <span class="sep">•</span>
+
           <a href="mailto:tconner2919@outlook.com">tconner2919@outlook.com</a>
           <span class="sep">•</span>
 
@@ -51,52 +54,48 @@
             </svg>
             <span>LinkedIn</span>
           </a>
-          <!--
-          <span class="sep">•</span>
-          
-           Medium 
-          <a class="icon-link" href="https://medium.com/@tconnercloudandqa" target="_blank" rel="noreferrer" aria-label="Medium">
-            <svg class="icon" viewBox="0 0 1043.63 592.71" aria-hidden="true">
-              <path d="M588.67 296.36c0 163.7-131.7 296.36-294.33 296.36S0 460.06 0 296.36 131.7 0 294.34 0s294.33 132.66 294.33 296.36zm322.24 0c0 154.05-65.85 279.01-147.17 279.01s-147.17-124.96-147.17-279.01S682.42 17.35 763.74 17.35s147.17 124.96 147.17 279.01zm132.72 0c0 138.02-23.46 249.93-52.41 249.93s-52.41-111.91-52.41-249.93 23.46-249.93 52.41-249.93 52.41 111.91 52.41 249.93z"/>
-            </svg>
-            <span>Medium</span>
-          </a>-->
-        </div>
+        </nav>
       </div>
 
       <div class="header-right">
-        <!-- Optional: reinstate once filename is stable -->
-        <!-- <a class="btn" href="./Todd-Conner-Senior-Quality-Engineer-Automation-Cloud.pdf" download>Download PDF</a> -->
+        <!-- Optional PDF download button -->
       </div>
     </header>
 
-    <section>
+    <!-- ===========================
+         SUMMARY
+    ============================ -->
+    <section id="summary">
       <h2>Summary</h2>
       <p>
         Senior Quality Assurance Engineer specializing in API-first automation, CI/CD-integrated validation, and cloud-based test execution. Modernizes legacy QA processes into scalable, automated pipelines using Python, Playwright, and GitHub Actions. Known for reducing regression cycles from days to hours and improving release confidence through risk-based, data-driven testing. A collaborative partner who translates requirements into targeted test coverage that improves release confidence.
       </p>
     </section>
 
-    <section>
-      <h2>SOFTWARE QUALITY ENGINEERING & AUTOMATION SKILLS</h2>
+    <!-- ===========================
+         SKILLS
+    ============================ -->
+    <section id="skills">
+      <h2>Software Quality Engineering & Automation Skills</h2>
 
-      <div class="grid">
-        <div class="card">
+      <div class="grid skills-grid">
+
+        <article class="card">
           <h3>Automation &amp; Test Engineering</h3>
           <ul>
             <li>Test Automation Design</li>
             <li>Automation Framework Foundations</li>
-            <li>Playwright & Selenium (Foundational)</li>
-            <li>Python-Based API Automation
-            <li>Postman Collections & Scripts</li>
+            <li>Playwright &amp; Selenium (Foundational)</li>
+            <li>Python-Based API Automation</li>
+            <li>Postman Collections &amp; Scripts</li>
             <li>Page Object–Style Test Organization</li>
-            <li>Data-Driven Testing
+            <li>Data-Driven Testing</li>
             <li>Reusable Test Helpers &amp; Utilities</li>
             <li>Automation Debugging &amp; Refactoring</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Quality Engineering Practices</h3>
           <ul>
             <li>Quality Strategy &amp; Ownership</li>
@@ -110,18 +109,16 @@
             <li>UI &amp; UX Validation</li>
             <li>Cross-Browser &amp; Cross-Platform Testing (Web + Manual Mobile)</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>CI/CD, Cloud &amp; DevOps</h3>
           <ul>
             <li>Pipeline Troubleshooting &amp; Observability</li>
             <li>Cloud Platforms (AWS &amp; GCP Applied Projects)</li>
             <li>Infrastructure as Code (Terraform – Applied Projects)</li>
             <li>Orchestration (K8 – Applied Projects)</li>
-            <li>IAC (Terraform – Applied Projects)</li>
             <li>Configuration (Ansible – Applied Projects)</li>
-            <li>Orchestration (K8 – Applied Projects)</li>
             <li>Monitoring (Prometheus – Applied Projects)</li>
             <li>Jenkins (Dockerized Pipelines)</li>
             <li>GitHub Actions (Workflow-Driven CI)</li>
@@ -130,23 +127,23 @@
             <li>Release Verification &amp; Validation</li>
             <li>Environment Configuration &amp; Consistency (Project-Level)</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>API &amp; Backend Testing</h3>
           <ul>
             <li>REST API Testing</li>
             <li>API Contract &amp; Payload Validation</li>
-            <li>Schema & Field-Level Validation</li>
+            <li>Schema &amp; Field-Level Validation</li>
             <li>Python (requests)–Based API Automation</li>
             <li>Postman Collections &amp; Test Scripts</li>
             <li>JSON &amp; XML Validation</li>
             <li>Error Handling &amp; Failure-Path Testing</li>
             <li>Backend Data Integrity &amp; Transaction Validation (SQL)</li>
           </ul>
-        </div>
-       
-        <div class="card">
+        </article>
+
+        <article class="card">
           <h3>Programming &amp; Scripting</h3>
           <ul>
             <li>Python (API Automation, Test Utilities)</li>
@@ -155,9 +152,9 @@
             <li>HTML &amp; CSS (DOM Inspection &amp; UI Validation)</li>
             <li>Bash and Shell scripting</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Tools &amp; Test Management</h3>
           <ul>
             <li>Jira (Defect Tracking &amp; Workflow Management)</li>
@@ -168,9 +165,9 @@
             <li>VS Code (Primary IDE) &amp; PyCharm</li>
             <li>IntelliJ (Working Familiarity)</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Domain &amp; Advanced Capabilities</h3>
           <ul>
             <li>Manual Mobile Testing (iOS &amp; Android)</li>
@@ -181,11 +178,15 @@
             <li>Regulated &amp; High-Trust Systems (Telecom &amp; Enterprise Platforms)</li>
             <li>AI-Assisted Testing (Test Ideation &amp; Result Analysis)</li>
           </ul>
-        </div>
+        </article>
+
       </div>
     </section>
 
-    <section>
+    <!-- ===========================
+         EXPERIENCE
+    ============================ -->
+    <section id="experience">
       <h2>Professional Experience</h2>
 
       <article class="role">
@@ -194,12 +195,12 @@
           <span class="dates">05/2025 – Present • Atlanta, GA</span>
         </div>
 
-        <!-- ✅ Consistent typography class -->
         <p class="company-description">
           Diversociete is a boutique e-commerce company that designs and operates digital platforms enabling customers to discover curated products, place secure online orders, and receive a seamless shopping experience through integrated web and backend systems.
         </p>
-        
-        <p>Tech Stack: Playwright, Python, JavaScript, Postman, REST APIs, JSON, SQL, GitHub Actions, Docker, AWS, GCP, Git, Jira
+
+        <p class="tech-stack">
+          Tech Stack: Playwright, Python, JavaScript, Postman, REST APIs, JSON, SQL, GitHub Actions, Docker, AWS, GCP, Git, Jira
         </p>
 
         <ul>
@@ -219,12 +220,12 @@
           <span class="dates">04/2015 – 04/2024 • Richmond, VA</span>
         </div>
 
-        <!-- ✅ Consistent typography class -->
         <p class="company-description">
           T-Mobile is a global technology and telecommunications company that designs, builds, and operates large-scale web, mobile, and API-driven platforms supporting customer applications, backend services, and data systems with a strong focus on performance, reliability, and scalability.
         </p>
 
-        <p>Tech Stack: KPI analysis (RSRP, SINR, throughput), JSON, APIs, Python, Postman, MySQL, REST APIs, Linux/CLI, distributed systems, cross-service debugging
+        <p class="tech-stack">
+          Tech Stack: KPI analysis (RSRP, SINR, throughput), JSON, APIs, Python, Postman, MySQL, REST APIs, Linux/CLI, distributed systems, cross-service debugging
         </p>
 
         <ul>
@@ -237,7 +238,10 @@
       </article>
     </section>
 
-    <section>
+    <!-- ===========================
+         EDUCATION
+    ============================ -->
+    <section id="education">
       <h2>Education</h2>
       <ul class="edu">
         <li><strong>Master of Business Administration</strong> — Western Governors University • Richmond, VA</li>
@@ -245,70 +249,101 @@
       </ul>
     </section>
 
-    <section>
-      <h2>Certifications</h2>
+<!-- ===========================
+     CERTIFICATIONS
+============================ -->
+<section id="certifications">
+  <h2>Certifications</h2>
 
-      <ul class="edu">
-        <li>
-          <strong>University of Phoenix Cloud Computing</strong> (credential 24NL-43YW-AGRH)
-          —
-          <a href="https://www.phoenix.edu/cecredential-validation.html" target="_blank" rel="noreferrer">Credential validation</a>
-        </li>
-        <li>
-          <strong>AWS Certified Cloud Practitioner</strong> (credential 26b31aa435714ef4b30411f9966d8b10)
-          —
-          <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential" target="_blank" rel="noreferrer">Credential validation</a>
-        </li>
-        <li>
-          <strong>Project Management Professional (PMP)</strong> (credential 1440075)
-          —
-          <a href="https://www.pmi.org/certifications/certification-resources/registry" target="_blank" rel="noreferrer">PMI registry</a>
-        </li>
-      </ul>
-    </section>
+  <ul class="edu">
+    <li>
+      <strong>University of Phoenix Cloud Computing</strong> (credential 24NL-43YW-AGRH)
+      —
+      <a href="https://www.phoenix.edu/cecredential-validation.html" target="_blank" rel="noreferrer">
+        Credential validation
+      </a>
+    </li>
 
-    <footer class="footer">
-      <small>
-        Last updated: <span id="lastUpdated"></span>
-        • Views (this device): <span id="viewCount"></span>
-      </small>
-    </footer>
-  </main>
+    <li>
+      <strong>AWS Certified Cloud Practitioner</strong> (credential 26b31aa435714ef4b30411f9966d8b10)
+      —
+      <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential" target="_blank" rel="noreferrer">
+        Credential validation
+      </a>
+    </li>
 
-  <script>
-    async function setLastUpdatedFromGitHub() {
-      const owner = "vivaciousdove";
-      const repo = "myresume";
-      const el = document.getElementById("lastUpdated");
+    <li>
+      <strong>Project Management Professional (PMP)</strong> (credential 1440075)
+      —
+      <a href="https://www.pmi.org/certifications/certification-resources/registry" target="_blank" rel="noreferrer">
+        PMI registry
+      </a>
+    </li>
+  </ul>
+</section>
 
-      try {
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`, {
-          headers: { "Accept": "application/vnd.github+json" }
-        });
-        if (!res.ok) throw new Error("GitHub API response not ok");
-        const data = await res.json();
+<!-- ===========================
+     FOOTER
+============================ -->
+<footer class="footer" role="contentinfo">
+  <small>
+    Last updated: <span id="lastUpdated"></span>
+    • Views (this device): <span id="viewCount"></span>
+  </small>
+</footer>
 
-        const iso = data?.[0]?.commit?.committer?.date || data?.[0]?.commit?.author?.date;
-        if (!iso) throw new Error("No commit date found");
+</main>
 
-        const d = new Date(iso);
-        el.textContent = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-      } catch (e) {
-        el.textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-      }
+<!-- ===========================
+     SCRIPTS
+============================ -->
+
+<script>
+  async function setLastUpdatedFromGitHub() {
+    const owner = "vivaciousdove";
+    const repo = "myresume";
+    const el = document.getElementById("lastUpdated");
+
+    try {
+      const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`, {
+        headers: { "Accept": "application/vnd.github+json" }
+      });
+
+      if (!res.ok) throw new Error("GitHub API response not ok");
+
+      const data = await res.json();
+      const iso =
+        data?.[0]?.commit?.committer?.date ||
+        data?.[0]?.commit?.author?.date;
+
+      if (!iso) throw new Error("No commit date found");
+
+      const d = new Date(iso);
+      el.textContent = d.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
+
+    } catch (e) {
+      el.textContent = new Date().toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
     }
+  }
 
-    setLastUpdatedFromGitHub();
-  </script>
+  setLastUpdatedFromGitHub();
+</script>
 
-  <script>
-    const key = "resume_view_count";
-    let count = localStorage.getItem(key);
+<script>
+  const key = "resume_view_count";
+  let count = localStorage.getItem(key);
 
-    count = count ? parseInt(count, 10) + 1 : 1;
-    localStorage.setItem(key, count);
+  count = count ? parseInt(count, 10) + 1 : 1;
+  localStorage.setItem(key, count);
 
-    document.getElementById("viewCount").textContent = count;
-  </script>
-</body>
-</html>
+  document.getElementById("viewCount").textContent = count;
+</script>
+
