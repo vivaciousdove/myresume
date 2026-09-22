@@ -1,0 +1,16 @@
+# Node dependencies
+node_modules/
+
+# Playwright generated output
+playwright-report/
+test-results/
+blob-report/
+
+# Environment files
+.env
+.env.*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
