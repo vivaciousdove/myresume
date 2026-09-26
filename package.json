@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/vivaciousdove/myresume#readme",
   "devDependencies": {
-    "@playwright/test": "^1.58.0"
+    "@playwright/test": "^1.58.0",
+    "http-server": "^14.1.1"
   }
 }

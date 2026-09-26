@@ -1,76 +1,159 @@
-
 import { test, expect } from '@playwright/test';
 
-/**
- * Resume site smoke test (CI-friendly):
- * - Loads page
- * - Verifies visible content
- * - Verifies key outbound links exist and look correct
- * - Verifies PDF is reachable (request-level)
- * - Ensures no console errors (hard gate)
- *
- * NOTE: Screenshot snapshot assertions are intentionally removed for now.
- * Reason: first CI run has no baseline snapshots, and cross-OS rendering can cause noise.
- * Add visual regression later as a separate workflow once the functional gate is stable/green.
- */
 test.describe('Resume site - smoke + quality gate', () => {
-  test('index loads, links valid, PDF reachable, no console errors', async ({ page }) => {
-    // Capture console errors (QA signal)
+
+  test('loads resume, validates required links, verifies canonical PDF, and has no console errors', async ({
+    page,
+  }) => {
+
+    // Capture browser console errors as a QA signal.
     const consoleErrors: string[] = [];
-    page.on('console', (msg) => {
-      if (msg.type() === 'error') consoleErrors.push(msg.text());
+
+    // Capture failed HTTP responses so failures can be traced
+    // back to the resource that caused them.
+    const failedResponses: string[] = [];
+
+    page.on('console', (message) => {
+      if (message.type() === 'error') {
+        consoleErrors.push(message.text());
+      }
     });
 
-    // Navigate to your site (CI should be serving this via your workflow)
-    await page.goto('http://127.0.0.1:5173/', { waitUntil: 'domcontentloaded' });
+    page.on('response', (response) => {
+      if (response.status() >= 400) {
+        failedResponses.push(`${response.status()} ${response.url()}`);
+      }
+    });
 
-    // Basic load assertions
+    // baseURL is defined in playwright.config.ts.
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+
+    // =====================================================
+    // CORE PAGE VALIDATION
+    // =====================================================
+
     await expect(page).toHaveTitle(/Todd|Resume|Portfolio/i);
 
-    // Visible content assertions
     await expect(page.locator('body')).toBeVisible();
-    await expect(page.locator('body')).toContainText(/Todd Conner|Todd/i);
 
-    // Link assertions (presence + correct href pattern)
-    const mediumLink = page.locator('a[href*="medium.com"]');
-    if (await mediumLink.count()) {
-      await expect(mediumLink.first()).toBeVisible();
-      await expect(mediumLink.first()).toHaveAttribute('href', /medium\.com/i);
-    }
+    await expect(page.locator('body')).toContainText(/Todd Conner/i);
 
-    const mailtoLink = page.locator('a[href^="mailto:"]');
-    if (await mailtoLink.count()) {
-      await expect(mailtoLink.first()).toBeVisible();
-      await expect(mailtoLink.first()).toHaveAttribute('href', /^mailto:/i);
-    }
+    // Validate the source-of-truth professional headline.
+    await expect(page.locator('body')).toContainText(
+      /QA Automation Engineer\s*\|\s*Software Development Engineer in Test/i
+    );
+
+
+    // =====================================================
+    // REQUIRED PROFESSIONAL LINKS
+    // =====================================================
+
+    const emailLink = page.locator('a[href^="mailto:"]');
+
+    await expect(emailLink).toBeVisible();
+
+    await expect(emailLink).toHaveAttribute('href', /^mailto:/i);
+
 
     const githubLink = page.locator('a[href*="github.com"]');
-    if (await githubLink.count()) {
-      await expect(githubLink.first()).toBeVisible();
-      await expect(githubLink.first()).toHaveAttribute('href', /github\.com/i);
-    }
+
+    await expect(githubLink).toBeVisible();
+
+    await expect(githubLink).toHaveAttribute(
+      'href',
+      /github\.com/i
+    );
+
 
     const linkedinLink = page.locator('a[href*="linkedin.com"]');
-    if (await linkedinLink.count()) {
-      await expect(linkedinLink.first()).toBeVisible();
-      await expect(linkedinLink.first()).toHaveAttribute('href', /linkedin\.com/i);
-    }
 
-    // PDF reachability check (request-level = stable + fast)
-    // Update this if your PDF filename changes.
-    const pdfHref = 'Todd-Conner-Senior-Quality-Engineer-Automation-Cloud.pdf';
+    await expect(linkedinLink).toBeVisible();
 
-    const pdfResponse = await page.request.get(`http://127.0.0.1:5173/${pdfHref}`);
-    expect(pdfResponse.ok(), `PDF request failed for /${pdfHref}`).toBeTruthy();
+    await expect(linkedinLink).toHaveAttribute(
+      'href',
+      /linkedin\.com/i
+    );
 
-    const contentType = pdfResponse.headers()['content-type'] || '';
-    expect(contentType, `Unexpected content-type for PDF: "${contentType}"`).toMatch(/application\/pdf/i);
 
-    // Console errors gate (hard fail if any)
-    expect(consoleErrors, `Console errors found:\n${consoleErrors.join('\n')}`).toEqual([]);
+    // =====================================================
+    // CANONICAL RESUME PDF CONTRACT
+    // =====================================================
 
-    // Optional: attach a non-baseline screenshot for debugging evidence (does NOT require snapshots)
-    // This helps you review the rendered page on CI without creating a snapshot baseline.
-    await page.screenshot({ path: 'test-results/resume-home-debug.png', fullPage: true });
+    const pdfLink = page.getByRole('link', {
+      name: /download pdf/i,
+    });
+
+    await expect(pdfLink).toBeVisible();
+
+    /*
+     * Quality contract:
+     * The website must always reference the canonical resume artifact.
+     *
+     * This prevents an obsolete or alternate PDF from accidentally
+     * becoming the public downloadable resume.
+     */
+    await expect(pdfLink).toHaveAttribute(
+      'href',
+      './assets/todd_conner_qa.pdf'
+    );
+
+    const pdfHref = await pdfLink.getAttribute('href');
+
+    expect(
+      pdfHref,
+      'Canonical Download PDF link must contain an href'
+    ).toBeTruthy();
+
+
+    // =====================================================
+    // PDF AVAILABILITY VALIDATION
+    // =====================================================
+
+    const pdfResponse = await page.request.get(pdfHref!);
+
+    expect(
+      pdfResponse.ok(),
+      `Canonical PDF request failed for ${pdfHref}`
+    ).toBeTruthy();
+
+    const contentType =
+      pdfResponse.headers()['content-type'] || '';
+
+    expect(
+      contentType,
+      `Unexpected content-type for canonical PDF: "${contentType}"`
+    ).toMatch(/application\/pdf/i);
+
+
+    // =====================================================
+    // HTTP / CONSOLE QUALITY GATE
+    // =====================================================
+
+    // Diagnostic output identifies HTTP 4xx/5xx resources.
+    console.log('HTTP error responses:', failedResponses);
+
+    /*
+     * A clean browser console is part of the smoke-test
+     * release quality gate.
+     */
+    expect(
+      consoleErrors,
+      `Console errors found:\n${consoleErrors.join('\n')}`
+    ).toEqual([]);
+
+
+    // =====================================================
+    // TEST EVIDENCE
+    // =====================================================
+
+    // Preserve a rendered-page artifact for troubleshooting
+    // and CI evidence.
+    await page.screenshot({
+      path: 'test-results/resume-home-debug.png',
+      fullPage: true,
+    });
+
   });
+
 });
